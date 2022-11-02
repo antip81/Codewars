@@ -16,24 +16,15 @@
 # is_valid_walk(['w','e','w','e','w','e','w','e','w','e','w','e']), False
 # is_valid_walk(['n','n','n','s','n','s','n','s','n','s']), False
 
-def is_valid_walk(walk):
-    x, y = 0, 0
-    if len(walk) != 10:
-        return False
-    else:
-        for i in walk:
-            if i == "n":
-                y += 1
-            elif i == "s":
-                y -= 1
-            elif i == "e":
-                x += 1
-            elif i == "w":
-                x -= 1
-        return True if x == 0 and y == 0 else False
+
+def is_valid_walk(walk: list) -> bool:
+    return True if len(walk) == 10 and \
+                   (walk.count("n") == walk.count("s") and walk.count("w") == walk.count("e")) \
+    else False
+
 
 walk = ['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']
 walk1 = ['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e']
-walk2 = ['n','n','n','s','n','s','n','s','n','s']
+walk2 = ['n', 'n', 'n', 's', 'n', 's', 'n', 's', 'n', 's']
 
-print(is_valid_walk(walk2))
+print(is_valid_walk(walk))
