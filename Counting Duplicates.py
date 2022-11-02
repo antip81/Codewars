@@ -20,5 +20,5 @@ def duplicate_count(text):
     return dupls
 
 
-s = "ABBA"
+s = "Indivisibilities"
 print(duplicate_count(s))
