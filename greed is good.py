@@ -20,25 +20,18 @@
 # dice = [2, 3, 4, 6, 2]
 # dice = [4, 4, 4, 3, 3]
 # dice = [2, 4, 4, 5, 4]
-# dice = [1, 1, 1, 1, 1]
+dice = [1, 1, 1, 1, 1]
 # dice = [4, 4, 4, 3, 3]
 # dice = [1, 3, 3, 3, 6]
-dice = [3, 3, 3, 3, 3]
+# dice = [3, 3, 3, 3, 3]
 
 
 def score(dice):
-    all_dice_scores = {1: 1000, 2: 200, 3: 300, 4: 400, 5: 500, 6: 600}
-    one_and_five = {1: 100, 5: 50}
-    total_scores = 0
-
-    for i in range(1, 7):
-        if (i == 2 or i == 3 or i == 4 or i == 6) and dice.count(i) >= 3:
-            total_scores += all_dice_scores[i]
-        elif (i == 1 or i == 5) and 0 < dice.count(i) < 3:
-            total_scores += one_and_five[i] * dice.count(i)
-        elif (i == 1 or i == 5) and dice.count(i) >= 3:
-            total_scores += all_dice_scores[i] + one_and_five[i] * (dice.count(i) - 3)
-
-    return total_scores
+    return dice.count(1)//3 * 1000 + dice.count(1)%3 * 100 \
+           + dice.count(2)//3 * 200 \
+           + dice.count(3)//3 * 300 \
+           + dice.count(4)//3 * 400 \
+           + dice.count(5)//3 * 500 + dice.count(5)%3 * 50 \
+           + dice.count(6)//3 * 600 \
 
 print(score(dice))
